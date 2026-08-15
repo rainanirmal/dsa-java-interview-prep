@@ -4,22 +4,22 @@ import java.util.*;
 
 public class second_largest_element_in_array {
 
-    public static int second_largest(int[] arr) {
+    // public static int second_largest(int[] arr) {
 
-        Arrays.sort(arr);
+    //     Arrays.sort(arr);
         
-        int max = arr[arr.length - 1];
-        int second_max = max;
+    //     int max = arr[arr.length - 1];
+    //     int second_max = max;
 
-        for(int i = arr.length - 2 ; i >= 0 ; i --) {
-            if(arr[i] != max) {
-                second_max = arr[i];
-                break;
-            }
-        }
+    //     for(int i = arr.length - 2 ; i >= 0 ; i --) {
+    //         if(arr[i] != max) {
+    //             second_max = arr[i];
+    //             break;
+    //         }
+    //     }
 
-        return second_max;
-    }
+    //     return second_max;
+    // }
 
     // Enter size of array : 5
 
@@ -31,6 +31,38 @@ public class second_largest_element_in_array {
     // 55
 
     // Second largest elment : 67
+
+    public static int second_largest(int[] arr) {
+
+        int max = Integer.MIN_VALUE;
+
+        for(int i = 0 ; i < arr.length ; i ++) {
+            if(arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        int second_max = Integer.MIN_VALUE;
+
+        for(int i = 0 ; i < arr.length ; i ++) {
+            if(arr[i] > second_max && arr[i] != max) {
+                second_max = arr[i];
+            }
+        }
+
+        return second_max;
+    }
+
+    // Enter size of array : 5
+
+    // Enter elements of array
+    // 6
+    // 7
+    // 8
+    // 9
+    // 3
+
+    // Second largest elment : 8
     
     public static void main(String[] args) {
         
