@@ -4,21 +4,33 @@ import java.util.*;
 
 public class largest_element_in_array {
 
-    public static int larget_element(ArrayList<Integer> arr) {
+    // public static int larget_element(ArrayList<Integer> arr) {
 
-        int max = 0;
+    //     int max = 0;
 
-        for (Integer i : arr) {
-            if(i > max) {
-                max = i;
-            }
-        }
+    //     for (Integer i : arr) {
+    //         if(i > max) {
+    //             max = i;
+    //         }
+    //     }
 
-        return max;
-    }
+    //     return max;
+    // }
 
     // Input: [1,2,3,4,5,89]
     // Output: 89
+
+    public static int larget_element(ArrayList<Integer> arr) {
+
+        // Arrays.sort(null);
+
+        Collections.sort(arr);
+        
+        return arr.get(arr.size() - 1);
+    }
+
+    // Input: [45,2,4,7,8,9]
+    // Output: 45
     
     public static void main(String[] args) {
         
