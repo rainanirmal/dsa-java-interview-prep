@@ -8,12 +8,51 @@ public class search_in_array {
 
         for(int i = 0; i < arr.size() ; i ++) {
             if (arr.get(i) == target) {
-                return i+1;
+                return i;
             }
         }
 
         return -1;
     }
+
+    // Input:  [1,2,3,4,5,6,7]
+    //         5
+    // Output: 4
+
+    // Input: [1,2,3,4,5,6,7]              
+    //        9
+    // Ouput: -1
+
+    public static int binary_search(ArrayList<Integer> arr, int target) {
+
+        int low = 0;
+        int high = arr.size() - 1;
+
+        while (low <= high) {
+            
+            int mid = low + (high - low) / 2;
+
+            if(arr.get(mid) == target) {
+                return mid;
+            }
+            else if(target < arr.get(mid)) {
+                high = mid - 1;
+            }
+            else {
+                low = mid + 1;
+            }
+        }
+
+        return -1;
+    }
+
+    // Input: [1,2,3,4,5,6,7]
+    //        6
+    // Output: 5
+
+    // Input: [1,2,3,4,5,6,7]
+    //        0
+    // Output: -1  
     
     public static void main(String[] args) {
         
@@ -32,10 +71,11 @@ public class search_in_array {
 
         int x = sc.nextInt();
 
-        int ans = linear_search(arr_int, x);       
+        // int ans = linear_search(arr_int, x);  
+        
+        int ans = binary_search(arr_int, x);
 
         System.out.println(ans);
-
 
         sc.close();
     }
