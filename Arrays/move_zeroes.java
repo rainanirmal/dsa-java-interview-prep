@@ -8,24 +8,24 @@ import java.util.*;
 
 public class move_zeroes {
 
-    public static void move(int[] arr) {
+    // public static void move(int[] arr) {
 
-        ArrayList<Integer> temp = new ArrayList<>();
+    //     ArrayList<Integer> temp = new ArrayList<>();
 
-        for(int i = 0; i < arr.length; i ++) {
-            if (arr[i] != 0) {
-                temp.add(arr[i]);
-            }
-        }
+    //     for(int i = 0; i < arr.length; i ++) {
+    //         if (arr[i] != 0) {
+    //             temp.add(arr[i]);
+    //         }
+    //     }
 
-        for(int i = 0; i < temp.size(); i++) {
-            arr[i] = temp.get(i);
-        }
+    //     for(int i = 0; i < temp.size(); i++) {
+    //         arr[i] = temp.get(i);
+    //     }
 
-        for(int i = temp.size(); i < arr.length; i ++) {
-            arr[i] = 0;
-        }
-    }
+    //     for(int i = temp.size(); i < arr.length; i ++) {
+    //         arr[i] = 0;
+    //     }
+    // }
 
     // Enter size of array: 
     // 5
@@ -39,6 +39,43 @@ public class move_zeroes {
     
     // Moving zeroes at the end of the array: 
     // 1 3 12 0 0 
+
+    public static void move(int[] arr) {
+
+        int j = -1;
+
+        for(int i = 0; i < arr.length; i ++) {
+            if (arr[i] == 0) {
+                j = i;
+                break;
+            }
+        } 
+
+        if (j != -1) {
+            for(int i = j + 1; i < arr.length; i ++) {
+                if(arr[i] != 0) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    j++;
+                }
+            }
+        }
+    }
+
+    // Enter size of array: 
+    // 6
+
+    // Enter elements of array: 
+    // 0
+    // 0
+    // 8
+    // 6
+    // 4
+    // 2
+
+    // Moving zeroes at the end of the array: 
+    // 8 6 4 2 0 0 
     
     public static void main(String[] args) {
         
