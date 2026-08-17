@@ -44,20 +44,20 @@ public class single_among_doubles_in_array {
     // 3
 
     // xor
-    public static int single_among_doubles(int[] arr) {
+    // public static int single_among_doubles(int[] arr) {
 
-        int ans = 0;
+    //     int ans = 0;
 
-        for(int i = 0; i < arr.length; i++) {
-            ans = ans ^ arr[i];
-        }
+    //     for(int i = 0; i < arr.length; i++) {
+    //         ans = ans ^ arr[i];
+    //     }
 
-        return ans;
+    //     return ans;
 
-        // 0 ^ 0 = 0
-        // 1 ^ 0 = 1
-        // 1 ^ 1 = 0
-    }
+    //     // 0 ^ 0 = 0
+    //     // 1 ^ 0 = 1
+    //     // 1 ^ 1 = 0
+    // }
 
     // Enter size of array:
     // 7
@@ -71,6 +71,53 @@ public class single_among_doubles_in_array {
     // 4
     // Single among doubles in array:
     // 3
+
+    public static int single_among_doubles(int[] arr) {
+
+        if(arr.length == 1) {
+            return arr[0];
+        }
+
+        if (arr[0] != arr[1]) {
+            return arr[0];
+        }
+
+        if(arr[arr.length - 1] != arr[arr.length - 2]) {
+            return arr[arr.length - 1];
+        }
+
+        int low = 1;
+        int high = arr.length - 2;
+
+        while (low <= high) {
+            
+            int mid = low + (high - low) / 2;
+
+            if (arr[mid] != arr[mid - 1] && arr[mid] != arr[mid + 1]) {
+                return arr[mid];
+            }
+            else if ((mid % 2 == 1 && arr[mid - 1] == arr[mid]) || (mid % 2 == 0 && arr[mid + 1] == arr[mid])) {
+                low = mid + 1;
+            }
+            else {
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    // Enter size of array: 
+    // 5
+
+    // Enter elements of array: 
+    // 1
+    // 1
+    // 2
+    // 3
+    // 3
+
+    // Single among doubles in array: 
+    // 2
     
     public static void main(String[] args) {
         
