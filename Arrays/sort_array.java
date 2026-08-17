@@ -7,40 +7,40 @@ import java.util.*;
 
 public class sort_array {
 
-    public static void sort(int[] arr) {
+    // public static void sort(int[] arr) {
 
-        int zero = 0;
-        int one = 0;
-        int two = 0;
+    //     int zero = 0;
+    //     int one = 0;
+    //     int two = 0;
 
-        for(int i = 0; i < arr.length; i ++) {
-            if (arr[i] == 0) {
-                zero++;
-            }
-            else if (arr[i] == 1) {
-                one++;
-            }
-            else {
-                two++;
-            }
-        }
+    //     for(int i = 0; i < arr.length; i ++) {
+    //         if (arr[i] == 0) {
+    //             zero++;
+    //         }
+    //         else if (arr[i] == 1) {
+    //             one++;
+    //         }
+    //         else {
+    //             two++;
+    //         }
+    //     }
 
-        for(int i = 0; i < zero; i ++) {
-            arr[i] = 0;
-        }
+    //     for(int i = 0; i < zero; i ++) {
+    //         arr[i] = 0;
+    //     }
 
-        for(int i = zero; i < zero+one; i ++) {
-            arr[i] = 1;
-        }
+    //     for(int i = zero; i < zero+one; i ++) {
+    //         arr[i] = 1;
+    //     }
 
-        for(int i = zero+one; i < zero+one+two; i ++) {
-            arr[i] = 2;
-        }
+    //     for(int i = zero+one; i < zero+one+two; i ++) {
+    //         arr[i] = 2;
+    //     }
 
-        for(int i = 0; i < arr.length; i ++) {
-            System.out.print(arr[i] + " ");
-        }
-    }
+    //     for(int i = 0; i < arr.length; i ++) {
+    //         System.out.print(arr[i] + " ");
+    //     }
+    // }
 
     // Enter size of array: 
     // 5
@@ -53,6 +53,48 @@ public class sort_array {
     // 1
 
     // Sorted array: 0 0 1 1 2 
+
+    // dutch national flag algo
+    public static void sort(int[] arr) {
+
+        int low = 0;
+        int mid = 0;
+        int high = arr.length - 1;
+
+        while (mid <= high) {
+            if (arr[mid] == 0) {
+                int temp = arr[mid];
+                arr[mid] = arr[low];
+                arr[low] = temp;
+
+                mid++;
+                low++;
+            }
+            else if (arr[mid] == 1) {
+                mid++;
+            }
+            else if(arr[mid] == 2) {
+                int temp = arr[mid];
+                arr[mid] = arr[high];
+                arr[high] = temp;
+
+                high--;
+            }
+        }
+
+        for(int i = 0; i < arr.length; i ++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    // Enter size of array: 
+    // 4
+    // Enter elements of array: 
+    // 1
+    // 2
+    // 0
+    // 0
+    // Sorted array: 0 0 1 2 
     
     public static void main(String[] args) {
         
