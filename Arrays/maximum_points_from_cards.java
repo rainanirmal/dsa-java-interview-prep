@@ -1,4 +1,6 @@
-// Given n cards arranged in rows 
+// Given n cards arranged in rows , each card has an associated score denoted by cardScroed array. 
+// Choose exact k cards. In each step, a card can be choosen either from beginning or end of the row. 
+// The score is the sum of the chosen cards
 
 package Arrays;
 
@@ -58,3 +60,20 @@ public class maximum_points_from_cards {
         
     }
 }
+
+// Enter size of array: 
+// 7
+
+// Enter elements of array: 
+// 5
+// 4
+// 1
+// 8
+// 7
+// 1
+// 3
+
+// Enter k: 
+// 3
+
+// Maximum cards point: 12
