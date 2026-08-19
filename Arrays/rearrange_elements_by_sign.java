@@ -9,33 +9,33 @@ import java.util.*;
 
 public class rearrange_elements_by_sign {
 
-    public static void rearrange_elements(int[] arr) {
+    // public static void rearrange_elements(int[] arr) {
 
-        int[] positive = new int[arr.length / 2];
-        int[] negative = new int[arr.length / 2];
-        int p = 0;
-        int n = 0;
+    //     int[] positive = new int[arr.length / 2];
+    //     int[] negative = new int[arr.length / 2];
+    //     int p = 0;
+    //     int n = 0;
 
-        for(int i = 0 ; i < arr.length; i ++) {
-            if (arr[i] < 0) {
-                negative[n] = arr[i];
-                n++;
-            }
-            else {
-                positive[p] = arr[i];
-                p++;
-            }
-        }
+    //     for(int i = 0 ; i < arr.length; i ++) {
+    //         if (arr[i] < 0) {
+    //             negative[n] = arr[i];
+    //             n++;
+    //         }
+    //         else {
+    //             positive[p] = arr[i];
+    //             p++;
+    //         }
+    //     }
 
-        for(int i = 0 ; i < arr.length / 2; i ++) {
-            arr[i * 2] = positive[i];
-            arr[i * 2 + 1] = negative[i];
-        }
+    //     for(int i = 0 ; i < arr.length / 2; i ++) {
+    //         arr[i * 2] = positive[i];
+    //         arr[i * 2 + 1] = negative[i];
+    //     }
 
-        for(int i = 0 ; i < arr.length; i++) {
-            System.out.print(arr[i]+ " ");
-        }
-    }
+    //     for(int i = 0 ; i < arr.length; i++) {
+    //         System.out.print(arr[i]+ " ");
+    //     }
+    // }
 
     // Enter size of array:
     // 6
@@ -50,6 +50,41 @@ public class rearrange_elements_by_sign {
 
     // Rearranged array:
     // 1 -1 2 -2 3 -3 
+
+    public static void rearrange_elements(int[] arr) {
+
+        int positive = 0;
+        int negative = 1;
+
+        int[] result = new int[arr.length];
+
+        for(int i = 0 ; i < arr.length ; i ++) {
+            if (arr[i] > 0) {
+                result[positive] = arr[i];
+                positive = positive + 2;
+            }
+            else {
+                result[negative] = arr[i];
+                negative = negative + 2;
+            }
+        }
+
+        for(int i = 0 ; i < arr.length; i++) {
+            System.out.print(result[i]+ " ");
+        }
+    }
+
+    // Enter size of array: 
+    // 4
+
+    // Enter elements of array: 
+    // -4
+    // 8
+    // -1
+    // 8
+
+    // Rearranged array: 
+    // 8 -4 8 -1 
     
     public static void main(String[] args) {
         
